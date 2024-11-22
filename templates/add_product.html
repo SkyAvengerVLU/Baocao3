@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Sản Phẩm Mới</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Thêm Sản Phẩm Mới</h2>
+        <form method="post">
+            <label for="product_name">Tên sản phẩm:</label>
+            <input type="text" id="product_name" name="product_name"><br>
+            <label for="product_price">Giá sản phẩm:</label>
+            <input type="text" id="product_price" name="product_price"><br>
+            <label for="category_id">Mã loại sản phẩm:</label>
+            <input type="text" id="category_id" name="category_id"><br>
+            <input type="submit" value="Thêm sản phẩm">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    {% if message != "Đăng nhập thành công!" %}
+                        <li>{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

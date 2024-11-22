@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm Kiếm Sản Phẩm</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Tìm Kiếm Sản Phẩm</h2>
+        <form method="post">
+            <label for="product_name">Nhập tên sản phẩm:</label>
+            <input type="text" id="product_name" name="product_name"><br>
+            <input type="submit" value="Tìm kiếm">
+        </form>
+        {% if products %}
+            <ul>
+            {% for product in products %}
+                <li>ID: {{ product[0] }}, Tên: {{ product[1] }}, Giá: {{ product[2] }}, Loại: {{ product[3] }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
